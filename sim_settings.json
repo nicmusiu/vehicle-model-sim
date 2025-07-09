@@ -1,0 +1,23 @@
+{
+  "duration" : 5.0,
+  "timestep" : 0.001,
+  
+  "s_start" : 0.0,
+  "n_start" : 0.0,
+  "mu_start" : 0.0,
+  "vx_start" : 0.0,
+  "vy_start" : 0.0,
+  "r_start" : 0.0,
+
+  "LSD"  : true,
+  "combined_slip"  : false,
+
+  "plot_vehicle_state": true,
+  "plot_vehicle_input": true,
+  "plot_path": true,
+  "plot_tire_model": true,
+  "plot_vehicle_dynamics": false,
+
+  "stability": false
+
+}
