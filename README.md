@@ -1,69 +1,66 @@
-# 🚗 Simplified Vehicle Model
+# 🚗 Simplified Vehicle Dynamics Models
 
-This repository provides a framework to simulate simplified vehicle dynamics using **Open Loop Simulation**.
-Choose model inputs, simulate and verify results.
+This repository provides a modular framework to simulate **simplified vehicle dynamics models** in **open-loop** configuration.
+
+You can select model inputs, run simulations, and analyze the results to:
+- validate experimental data,
+- build simulation environments (e.g. gyms for black-box model training),
+- prototype or benchmark **model-based controllers and estimators**,
+- compare different modeling assumptions and levels of complexity.
 
 ---
 
-<!-- ## 📦 Features
+## 📁 Repository Structure
 
-- Support for multiple simplified vehicle models (e.g., tricycle model)
-- Optional **Limited Slip Differential** modeling
-- Combined slip tire force calculations
-- Easily configurable simulation and plotting settings via JSON
+The repository is organized into the following main folders:
 
---- -->
+1. **`compare_simplified_models`**  
+   Several simplified vehicle models are simulated and compared, including:
+   - kinematic single-track model,
+   - linear and nonlinear single-track models,
+   - tricycle model with a locked differential.
+
+   ⚠️ A **single set of parameters** is shared among all models. As a result, the models do **not** represent the same physical vehicle exactly, as the exact tire parameters used within the work are protected.
+
+2. **`run_stability_analysis`**  
+   Tools to analyze **system poles and stability**.  
+   Use this folder to evaluate whether the chosen parameters and integration timestep yield stable lateral dynamics.  
+   The results produced in `compare_simplified_models` can be reused here.
+
+3. **`run_sim_using_complete_model`**  
+   A more detailed vehicle model, including:
+   - realistic driver inputs (steering, pedals, gear selection),
+   - Limited Slip Differential (LSD),
+   - combined slip tire effects,
+   - engine torque and RPM dynamics,
+   - 🚧 future improvements: longitudinal slip dynamics will be included in the framework!
+
+---
 
 ## 🚀 Getting Started
 
-### 1. Configure the Simulation
 
-Edit the `sim_setting.json` file to define:
+### (1) Model Parameter Customization (Optional)
 
-- `integration timestep` — numerical integration step
-- `initial state` — initial conditions for the vehicle model
-- `model definition`:
-  - Enable/disable **Limited Slip Differential** (`LSD:true` for tricycle model)
-  - Enable/disable **combined slip** calculation
-- `plotting options` — select which variables to visualize
-
----
-
-### 2. Adjust Model Parameters (Optional)
-
-For deeper customization, you can modify the model’s physical parameters
-in the folder **params**:
+For deeper customization, model parameters can be modified in the **`params`** folder:
 
 - Define the **engine torque curve**
 - Tune **vehicle parameters** (mass, inertia, tire characteristics, etc.)
+- Select among different **numerical integrators**, available in the `utils` folder:
+  - Euler
+  - RK2
+  - RK3
+  - RK4
 
 ---
 
-### 3. Define model Input
+### (2) How to Run a Simulation
 
-In the script (Section **%%INPUT**):
-```matlab
-main.m
-```
-select the input you want to provide for the model:
-- steering angle (u.steering)
-- Throttle (u.D)
-- Brake (u.B)
-- Gear (u.gear)
+1. Edit the `sim_setting.json` file to define the simulation settings, such as:
+   - integration timestep,
+   - initial state,
+   - simulation horizon and options.
+2. Run `main.m`.
+3. Analyze the generated plots and logged results.
 
-### 3. Run the Simulation
-
-Execute the main script in MATLAB:
-
-```matlab
-main.m
-```
-
-## ✅ In progress
-
-New features will be available soon:
-
-- Standard and Enhanced **Kinematic Models**
-- Linear Model in **Matrix Form**
-- Support for **Different Integrators** (e.g., Euler, Runge-Kutta 2, ...)
-- Tools for **Stability Analysis**
+---

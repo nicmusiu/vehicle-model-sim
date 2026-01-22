@@ -10,14 +10,12 @@
   "r_start" : 0.0,
 
   "LSD"  : true,
-  "combined_slip"  : false,
+  "combined_slip"  : true,
 
   "plot_vehicle_state": true,
   "plot_vehicle_input": true,
   "plot_path": true,
   "plot_tire_model": true,
-  "plot_vehicle_dynamics": false,
-
-  "stability": false
+  "plot_vehicle_dynamics": false
 
 }

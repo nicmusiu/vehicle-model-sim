@@ -1,0 +1,20 @@
+{
+    "duration" : 20.0,
+    "h" : 0.01,
+
+    "X_0" : 0.0,
+    "Y_0" : 0.0,
+    "YAW_0" : 0.0,
+    "vx" : 20.0,
+    "steer_angle": 100.0,
+
+    "use_kinematic_model" : true,
+    "is_kinematic_model_enhanced" : true,
+    "use_dynamic_linear" : true,
+    "use_dynamic_non_linear" : true,
+    "use_tricycle_model" : true,
+
+    "compare_models_output" : true,
+    "export_models_output" : true
+
+}

@@ -1,0 +1,60 @@
+---
+params:
+  setup: "yas_2024"
+  m: 757.0 #mass
+  Iz: 700.0 # inertia
+  lf: 1.722 #front_half_wheelbase
+  lr: 1.393 #rear_half_wheelbase
+  wb: 3.115 #wheelbase
+  cg: 0.4472
+  h_G: 0.3 #cg_height
+  tf: 1.6059 #front_track
+  tr: 1.5105 #rear_track
+  q: 0.26551 # roll axis distance
+  Kr_eq : 0.4668
+  h_FRC : 0.0359
+  h_RRC : 0.0334
+  Kf_roll : 1159966.224 # [Nm/rad]
+  Kr_roll: 1015415.324 # [Nm/rad]
+  tire_f:
+    b: -17.86
+    c: 1.433
+    d: 1.552
+    e: 0
+    sv: 0
+    sh: -0.0001
+  tire_r:
+    b: -24.678
+    c: 1.0
+    d: 1.796
+    e: 0
+    sv: 0
+    sh: 0
+  tire_x:
+    b: -16.02
+    c: 2.0
+    d: 1.416
+    sv: 0
+  steer_max: 0.2618
+  steer_rate_max: 0.8727
+  steering_ratio: 15.0
+  Cx: 1.2 #drag_coeff
+  Cz: 3.91 # lift_coeff
+  rho: 1.225 #air_density
+  S: 1 #projected_area
+  aero_split_f: 0.4297
+  Cr0: 0.0443 #rolling_resistance
+  final_ratio: 2.88 # final transmission_ratio
+  j0: 1.35 #transmission inertia
+  Rear_radius: 0.299 # rear tire_radius
+  R_wheel_scale: 1.02
+  gear_ratio:
+    - 2.917
+    - 1.875
+    - 1.381433
+    - 1.115
+    - 0.96
+    - 0.889
+  CBf: 10363.0 #front_brake_coeff
+  CBr: 6298.0 #rear_brake_coeff
+  g: 9.81 #gravity_coeff

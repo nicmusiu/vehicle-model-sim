@@ -1,5 +1,6 @@
 % -------------------------------------------------------------------------
-% main.m - simulate simplified tricycle model over time
+% main.m - simulate simplified tricycle model over time, including engine
+% model and full vehicle input.
 %
 % Copyright (c) 2025 [Unimore Racing]
 % All rights reserved.
@@ -22,9 +23,9 @@ engine = jsondecode(fileread("engine_map.json")).engineLUT;
 sim.time = (0:settings.timestep:settings.duration)';
 
 %% INPUT 
-u.steering = + deg2rad(80) / car.steer_ratio; % [deg]
+u.steering = + deg2rad(100) / car.steer_ratio; % [deg]
 u.Delta = linspace(u.steering,u.steering,length(sim.time)); % steering angle @ wheels
-u.D = linspace(0.0,0.8,length(sim.time)); % throttle
+u.D = linspace(0.0,0.5,length(sim.time)); % throttle
 u.B = linspace(0.0,0.0,length(sim.time)); % brake
 u.gear = linspace(1,1,length(sim.time));  % gear
 
